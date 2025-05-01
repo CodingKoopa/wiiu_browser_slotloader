@@ -1,0 +1,167 @@
+/* Wii Font */
+@font-face
+{
+	font-family: wiifontlight;
+	src: url(../fonts/contl.ttf);
+}
+@font-face
+{
+	font-family: wiifontmedium;
+	src: url(../fonts/contm.ttf);
+}
+
+/* This is the entire area */
+body
+{
+	background: no-repeat center top #0090c8;
+	/* Can't be included with background: */
+	background-size: 854px 410px;
+
+	/* Center it by setting 0 top/bottom and center left/right */
+	margin: auto;
+
+	/* This is the total size that will fit in the browser on the TV, except
+	1 has been subtracted from height for no scrolling
+	http://wiiubrew.org/wiki/Internet_Browser */
+	width: 854px;
+  height: 447px;
+  /* The sum of the height and width of the 2 sections (gamepad-screen and bottom-bar)
+  must be equal to the space we just allocated */
+
+  /* Don't select anything */
+  -webkit-user-select: none;
+
+	/* Use Wii font */
+	font-family: wiifontlight;
+	/* White font color */
+	color: white;
+	zoom: reset;
+}
+
+/* This is the main area, and only what is visible from the gamepad */
+#gamepad-screen
+{
+	/* The area inside the browser is 400px tall */
+    height: 400px;
+    /* We don't need to change the width because that's implied through the body */
+}
+
+#bottom-bar,  #loading-screen
+{
+	/* Blue */
+	background: #0090c8;
+}
+
+/* This is only visible on the TV unless you click the left analog stick */
+#bottom-bar
+{
+	/* Fill up the rest of the on-screen TV space */
+	height: 47px;
+
+	/* Grey Border on top */
+	border-top-color: #afaeae;
+	/* Border has to be thin to prevent scrolling */
+	border-top-width: 1px;
+	/* Solid. */
+	border-top-style: solid;
+	/* Round the top corners */
+	border-radius: 20px 20px 0 0;
+
+	/* Font size */
+	font-size: 2em;
+}
+
+#loading-screen
+{
+	/* Fill up the whole screen */
+	height: 447px;
+	width: 854px;
+
+	font-family: wiifontmedium;
+}
+
+.text-area
+{
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+.text-area h1
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.text-area p
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/* Text */
+h1, p
+{
+	/* Leaving this as default adds a margin */
+	margin: 0;
+	text-align: center;
+}
+
+/* The container of all of the app icons */
+table
+{
+	/* Align the left edge of the table with the apps in the background and start to do the top,
+	continued with the top margin of each individual icon */
+	padding: 5% 0 0 14.5%;
+}
+
+/* Table entry */
+td
+{
+	padding: 0;
+}
+
+/* Icon Block */
+.icon
+{
+	/* We'll be offsetting the blocks */
+	position: relative;
+	/* We'll also be specifying the height/width */
+	display: block;
+
+	visibility: hidden;
+
+	/* Spacing in between each block */
+	margin-right: 22px;
+	margin-top: 10%;
+
+	/* We still round the block anyways to crop out the corners */
+	border-radius: 16px;
+
+	/* Subtle shadow */
+	/*box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.5);*/
+
+	/* Size of background (Big enough to cover icons on gamepad-screen's background) */
+	width: 102px;
+	height: 102px;
+}
+
+/* Actual Icon Image */
+.icon img
+{
+	/* Position relative to icon corner */
+	position: absolute;
+
+	/* Resize image to fit in box */
+	width: 84px;
+	height: 84px;
+
+	/* Move image away from corner */
+	top: 9px;
+	left: 9px;
+
+	/* Round borders to fit inside the background image */
+	border-radius: 6px;
+}
